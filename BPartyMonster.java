@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class C_Grid_Covering {
+public class BPartyMonster {
 
     static class FastScanner {
         BufferedReader br;
@@ -22,42 +22,53 @@ public class C_Grid_Covering {
             return st.nextToken();
         }
 
-        int nextInt() { return Integer.parseInt(next()); }
-        long nextLong() { return Long.parseLong(next()); }
-        double nextDouble() { return Double.parseDouble(next()); }
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
 
         String nextLine() {
             String str = "";
-            try { str = br.readLine(); }
-            catch (IOException e) { e.printStackTrace(); }
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             return str;
         }
     }
-    public static int gcd(int a, int b) {
-    if (b == 0) return a;
-    return gcd(b, a % b);
-}
-
 
     public static void main(String[] args) {
         FastScanner sc = new FastScanner();
         StringBuilder out = new StringBuilder();
-
         int t = sc.nextInt();
-
         while (t-- > 0) {
             int n = sc.nextInt();
-            int m = sc.nextInt();
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            int sum = a+b;
-            if(gcd(n,a)==1 && gcd(m,b)==1 && gcd(n,m)<=2){
-                out.append("YES").append("\n");
-            }else{
-                
+            String s = sc.next();
+
+            if (n % 2 != 0) {
                 out.append("NO").append("\n");
+                continue;
             }
+            int oCnt = 0;
+            for (int i = 0; i < n; i++) {
+                if (s.charAt(i) == '(') {
+                    oCnt++;
+                }
+            }
+            if (oCnt != n / 2) {
+                out.append("NO").append("\n");
+            } else
+                out.append("YES").append("\n");
         }
+
         System.out.print(out);
     }
 }

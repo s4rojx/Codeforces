@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class C_Grid_Covering {
+public class AKoshary {
 
     static class FastScanner {
         BufferedReader br;
@@ -22,22 +22,28 @@ public class C_Grid_Covering {
             return st.nextToken();
         }
 
-        int nextInt() { return Integer.parseInt(next()); }
-        long nextLong() { return Long.parseLong(next()); }
-        double nextDouble() { return Double.parseDouble(next()); }
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
 
         String nextLine() {
             String str = "";
-            try { str = br.readLine(); }
-            catch (IOException e) { e.printStackTrace(); }
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             return str;
         }
     }
-    public static int gcd(int a, int b) {
-    if (b == 0) return a;
-    return gcd(b, a % b);
-}
-
 
     public static void main(String[] args) {
         FastScanner sc = new FastScanner();
@@ -46,18 +52,14 @@ public class C_Grid_Covering {
         int t = sc.nextInt();
 
         while (t-- > 0) {
-            int n = sc.nextInt();
-            int m = sc.nextInt();
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            int sum = a+b;
-            if(gcd(n,a)==1 && gcd(m,b)==1 && gcd(n,m)<=2){
-                out.append("YES").append("\n");
-            }else{
-                
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+            if (x % 2 != 0 && y % 2 != 0) {
                 out.append("NO").append("\n");
-            }
+            } else
+                out.append("YES").append("\n");
         }
+
         System.out.print(out);
     }
 }
