@@ -52,21 +52,18 @@ public class A_Phone_Desktop {
         int t = sc.nextInt();
 
         while (t-- > 0) {
+            int ans = 0;
+            long i = sc.nextLong();
+            long j = sc.nextLong();
+            long max = Math.max(i, j);
+            if ((max & 1) == 1) {
+                ans = Math.toIntExact(max == i ? ((max * max) - (max - 1) - (max - j)) : ((max * max) - (i - 1)));
+            } else {
+                ans = Math.toIntExact(max == i ? ((max * max) - (j - 1)) : ((max * max) - (max - 1) - (max - i)));
+            }
 
-    int x = sc.nextInt();
-    int y = sc.nextInt();
-
-    int screens = (y + 1) / 2;
-
-    int remArea = screens * 15 - y * 4;
-
-    if (x > remArea) {
-        int extra = x - remArea;
-        screens += (extra + 14) / 15;
-    }
-
-    out.append(screens).append("\n");
-}
+            out.append(ans).append("\n");
+        }
         System.out.print(out);
     }
 }
