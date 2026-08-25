@@ -74,7 +74,6 @@ public class ANeedleInAHaystack {
             StringBuilder sb = new StringBuilder();
             
         }
-
         System.out.print(out);
     }
 }
